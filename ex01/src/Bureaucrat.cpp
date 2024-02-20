@@ -6,7 +6,7 @@
 /*   By: jschott <jschott@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 10:35:36 by jschott           #+#    #+#             */
-/*   Updated: 2024/02/20 18:21:22 by jschott          ###   ########.fr       */
+/*   Updated: 2024/02/20 19:20:22 by jschott          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,4 +81,14 @@ int			Bureaucrat::getGrade() const{
 std::ostream& operator <<(std::ostream& os, const Bureaucrat& bureaucrat){
 	os << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade() << ".";
 	return os;
+}
+
+void Bureaucrat::signForm(Form& form){
+	try	{
+		form.beSigned(*this);
+	}
+	catch(const std::exception& e){
+		std::cerr << e.what() << std::endl;
+	}
+	
 }

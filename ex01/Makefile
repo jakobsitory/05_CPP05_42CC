@@ -10,12 +10,13 @@
 #																			  #
 # **************************************************************************** #
 
-NAME = Bureaucrat
+NAME = Forms2Fill
 
 # SOURCES
 SRC_PATH =	src/
 SRC_FILES =	main.cpp \
-			Bureaucrat.cpp
+			Bureaucrat.cpp \
+			Form.cpp
 SRCS := $(addprefix $(SRC_PATH), $(SRC_FILES))
 
 # OBJECTS
@@ -24,7 +25,8 @@ OBJS = $(addprefix $(OBJ_PATH), $(SRC_FILES:.cpp=.o))
 
 # INCLUDES
 INCL_PATH =	include/
-HDRS = 		Bureaucrat.hpp
+HDRS = 		Bureaucrat.hpp \
+			Form.hpp
 INCLDS := $(addprefix $(INCL_PATH), $(HDRS))
 
 # COMPILATION CMNDS
