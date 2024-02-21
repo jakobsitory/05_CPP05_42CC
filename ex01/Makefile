@@ -42,7 +42,13 @@ $(NAME): $(OBJS)
 	$(CC) $(FT_FLAGS) $(INCLUDES) -o $(NAME) $(OBJS)
 	@echo "\nExecutable compiled\n\n"
 
+${OBJ_PATH}:
+				@if [ ! -d "${OBJ_PATH}" ]; \
+				then mkdir -p "${OBJ_PATH}"; \
+				fi
+
 $(OBJ_PATH)%.o: $(SRC_PATH)%.cpp $(INCLDS)
+	@mkdir -p $(dir $@)
 	$(CC) $(FT_FLAGS) $(INCLUDES) -c $< -o $@
 
 clean: 

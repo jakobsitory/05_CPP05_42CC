@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jschott <jschott@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jschott <jschott@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 18:10:06 by jschott           #+#    #+#             */
-/*   Updated: 2024/02/20 19:31:39 by jschott          ###   ########.fr       */
+/*   Updated: 2024/02/21 13:01:55 by jschott          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,10 @@ int Form::getGrade2Exec() const{
 }
 
 void Form::beSigned(Bureaucrat& bureaucrat){
-	if (this->getSigned())
-		throw Form::AlreadySignedException();
 	if (this->_grade2sign < bureaucrat.getGrade())
 		throw Form::GradeTooLowException();
+	if (this->getSigned())
+		throw Form::AlreadySignedException();
 	else
 		this->_signed = true;
 }
@@ -69,6 +69,6 @@ std::ostream& operator <<(std::ostream& os, const Form& form){
 	os << "Form:\t\t" << form.getName() << std::endl
 		<< "Signed:\t\t" << std::boolalpha << form.getSigned() << std::endl
 		<< "Sign grade:\t" << form.getGrade2Sign() << std::endl
-		<< "Execut grade:\t" << form.getGrade2Exec() << std::endl;
+		<< "Execute grade:\t" << form.getGrade2Exec() << std::endl;
 	return os;
 }

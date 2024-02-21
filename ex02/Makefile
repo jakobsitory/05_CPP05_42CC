@@ -10,12 +10,16 @@
 #																			  #
 # **************************************************************************** #
 
-NAME = Bureaucrat
+NAME = Form28B
 
 # SOURCES
 SRC_PATH =	src/
 SRC_FILES =	main.cpp \
-			Bureaucrat.cpp
+			Bureaucrat.cpp \
+			AForm.cpp \
+			PresidentialPardonForm.cpp \
+			RobotomyRequestForm.cpp \
+			ShrubberyCreationForm.cpp
 SRCS := $(addprefix $(SRC_PATH), $(SRC_FILES))
 
 # OBJECTS
@@ -24,7 +28,11 @@ OBJS = $(addprefix $(OBJ_PATH), $(SRC_FILES:.cpp=.o))
 
 # INCLUDES
 INCL_PATH =	include/
-HDRS = 		Bureaucrat.hpp
+HDRS = 		Bureaucrat.hpp \
+			AForm.hpp \
+			PresidentialPardonForm.hpp \
+			RobotomyRequestForm.hpp \
+			ShrubberyCreationForm.hpp
 INCLDS := $(addprefix $(INCL_PATH), $(HDRS))
 
 # COMPILATION CMNDS
@@ -39,6 +47,11 @@ $(NAME): $(OBJS)
 	@echo "\n\nCompiling Executable\n"
 	$(CC) $(FT_FLAGS) $(INCLUDES) -o $(NAME) $(OBJS)
 	@echo "\nExecutable compiled\n\n"
+
+${OBJ_PATH}:
+				@if [ ! -d "${OBJ_PATH}" ]; \
+				then mkdir -p "${OBJ_PATH}"; \
+				fi
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.cpp $(INCLDS)
 	@mkdir -p $(dir $@)

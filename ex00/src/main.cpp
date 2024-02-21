@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jschott <jschott@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jschott <jschott@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 11:56:23 by jschott           #+#    #+#             */
-/*   Updated: 2024/02/20 17:46:39 by jschott          ###   ########.fr       */
+/*   Updated: 2024/02/21 13:27:08 by jschott          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ int	main(){
 					std::cout << "PROMITED: " << bureau << std::endl;
 				}
 			}
-			catch(const Bureaucrat::GradeTooHighException& e){
+			catch(const std::exception& e){
 				std::cerr << e.what() << std::endl;
 			}
 					
@@ -105,7 +105,7 @@ int	main(){
 					std::cout << "DEMOTED: " << bureau << std::endl;
 				}
 			}
-			catch(const Bureaucrat::GradeTooLowException& e){
+			catch(const std::exception& e){
 				std::cerr << e.what() << std::endl;
 			}
 
@@ -121,10 +121,7 @@ int	main(){
 						<< "Original:\t" << bureau << " at: " << &bureau << std::endl
 						<< "Copy:\t\t" << copy2 << " at: " << &copy2 << std::endl;
 		}
-		catch(const Bureaucrat::GradeTooLowException& e){
-			std::cerr << e.what() << std::endl;
-		}
-		catch(const Bureaucrat::GradeTooHighException& e){
+		catch(const std::exception& e){
 			std::cerr << e.what() << std::endl;
 		}
 

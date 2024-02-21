@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jschott <jschott@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jschott <jschott@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 11:56:23 by jschott           #+#    #+#             */
-/*   Updated: 2024/02/20 19:30:10 by jschott          ###   ########.fr       */
+/*   Updated: 2024/02/21 13:23:57 by jschott          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,12 @@
 #include <cstdlib>
 #include <string>
 #include <iostream>
+
+#define GREEN	\033[1;32m
+#define CYAN	\033[1;36m
+#define YELLOW	\033[1;33m
+#define RED		\033[1;31m
+#define BOLD	\033[1m
 
 bool num_str(const char* str){
 	
@@ -36,7 +42,7 @@ int	main(){
 
 	std::srand(static_cast<int>(std::time(NULL)));
 	
-	std::cout << "Welcome to the bureaucrat simulator!" << std::endl;
+	std::cout <<"Welcome to the bureaucrat simulator!" << std::endl;
 	std::cout << "To exit enter EXIT at any time" << std::endl;
 	std::cout << "Press Enter to start simulation" << std::endl;
 	input = "";
@@ -95,33 +101,32 @@ int	main(){
 			std::cout << std::endl << "Press Enter to create Bureaucrats of relevant grade" << std::endl;
 			input = "";
 			std::getline(std::cin, input);
-			Bureaucrat bureau_0("Allowed to sign", myform.getGrade2Sign());
-			Bureaucrat bureau_1("Allowed to exec", myform.getGrade2Exec());
-			Bureaucrat bureau_2("Not Allowed to sign", myform.getGrade2Sign() + 1);
-			Bureaucrat bureau_3("Not Allowed to exec", myform.getGrade2Exec() + 1);
+			Bureaucrat bureau_S("Allowed_to_sign", myform.getGrade2Sign());
+			//Bureaucrat bureau_E("Allowed_to_exec", myform.getGrade2Exec());
+			Bureaucrat bureau_Sx("Not_Allowed_to_sign", myform.getGrade2Sign() + 1);
+			//Bureaucrat bureau_Ex("Not_Allowed_to_exec", myform.getGrade2Exec() + 1);
 			std::cout << "SUCCESS!" << std::endl;
-			std::cout << bureau_0 << std::endl
-						<< bureau_1 << std::endl
-						<< bureau_2 << std::endl
-						<< bureau_3 << std::endl << std::endl;
+			std::cout << bureau_S << std::endl
+						<< bureau_Sx << std::endl;
+						/* << bureau_E << std::endl
+						<< bureau_Ex << std::endl << std::endl;
+						*/
 
 			std::cout << std::endl << "Press Enter to test signForm" << std::endl;
 			input = "";
 			std::getline(std::cin, input);
-			try {
-				bureau_0.signForm(myform);			
-				bureau_1.signForm(myform);
-				bureau_2.signForm(myform);
-				bureau_3.signForm(myform);
+		
+		try {
+				bureau_S.signForm(myform);
+				bureau_Sx.signForm(myform);
+				bureau_S.signForm(myform);
 			}
-			catch(const Bureaucrat::GradeTooHighException& e){
+			catch(const std::exception& e ){
 				std::cerr << e.what() << std::endl;
 			}
+
 		}
-		catch(const Form::GradeTooHighException& e){
-				std::cerr << e.what() << std::endl;
-		}
-		catch(const Form::GradeTooLowException& e){
+		catch(const std::exception& e ){
 				std::cerr << e.what() << std::endl;
 		}
 
