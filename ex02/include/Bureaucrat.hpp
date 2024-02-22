@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jschott <jschott@student.42berlin.de>      +#+  +:+       +#+        */
+/*   By: jschott <jschott@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 10:22:09 by jschott           #+#    #+#             */
-/*   Updated: 2024/02/21 19:29:54 by jschott          ###   ########.fr       */
+/*   Updated: 2024/02/22 09:35:12 by jschott          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,16 @@
 #include <string>
 #include <iostream>
 #include "AForm.hpp"
+
+#define TEXT_NOFORMAT	"\e[0m"
+#define TEXT_BOLD		"\e[1m"
+#define TEXT_UNDERLINE	"\e[4m"
+
+#define COLOR_STANDARD	"\033[0m"
+#define	COLOR_ERROR		"\033[31m"
+#define COLOR_WARNING	"\033[33m"
+#define COLOR_SUCCESS	"\033[92m"
+#define COLOR_FOCUS		"\e[35m"
 
 class Form;
 

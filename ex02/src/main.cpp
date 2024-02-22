@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jschott <jschott@student.42berlin.de>      +#+  +:+       +#+        */
+/*   By: jschott <jschott@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 11:56:23 by jschott           #+#    #+#             */
-/*   Updated: 2024/02/21 19:15:38 by jschott          ###   ########.fr       */
+/*   Updated: 2024/02/22 10:03:28 by jschott          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ int	main(){
 	Bureaucrat TopBureaucrat("TopBureaucrat", 1);
 	Bureaucrat FlopBureaucrat("FlopBureaucrat", 150);
 	
-	std::cout <<"Welcome to the bureaucrat simulator!" << std::endl;
-	std::cout << "To exit enter EXIT" << std::endl;
-	std::cout << "Press Enter to start simulation" << std::endl;
+	std::cout << "Welcome to the bureaucrat simulator!" << std::endl;
+	std::cout << "To exit enter " << TEXT_BOLD << "EXIT" << TEXT_NOFORMAT << std::endl;
+	std::cout << TEXT_BOLD << "Press Enter" << TEXT_NOFORMAT << " to start simulation" << std::endl;
 	std::string input = "";
 	std::getline(std::cin, input);
 	while (input != "EXIT"){
@@ -54,38 +54,46 @@ int	main(){
 			RobotomyRequestForm form_rrf (target_rrf);
 			PresidentialPardonForm form_ppf (target_ppf);
 			
-			std::cout << "SUCCESS!" << std::endl
+			std::cout << COLOR_SUCCESS << "SUCCESS!" << COLOR_STANDARD << std::endl
 			<< form_scf << std::endl << form_rrf << std::endl << form_ppf << std::endl;
 
-			std::cout << std::endl << "Press Enter to Execute before signage" << std::endl;
+			std::cout << std::endl << TEXT_BOLD << "Press Enter to Execute before signage" << TEXT_NOFORMAT << std::endl;
 			input = "";
 			std::getline(std::cin, input);
 			TopBureaucrat.executeForm(form_scf);
 			TopBureaucrat.executeForm(form_rrf);
 			TopBureaucrat.executeForm(form_ppf);
 			
-			std::cout << std::endl << "Press Enter to try signing with undergraded Bureaucrat" << std::endl;
+			std::cout << std::endl << TEXT_BOLD
+				<< "Press Enter to try signing with undergraded Bureaucrat"
+				<< TEXT_NOFORMAT << std::endl;
 			input = "";
 			std::getline(std::cin, input);
 			FlopBureaucrat.signForm(form_scf);
 			FlopBureaucrat.signForm(form_rrf);
 			FlopBureaucrat.signForm(form_ppf);
 			
-			std::cout << std::endl << "Press Enter to sign forms successfully" << std::endl;
+			std::cout << std::endl << TEXT_BOLD
+				<< "Press Enter to sign forms successfully"
+				<< TEXT_NOFORMAT << std::endl;
 			input = "";
 			std::getline(std::cin, input);
 			TopBureaucrat.signForm(form_scf);
 			TopBureaucrat.signForm(form_rrf);
 			TopBureaucrat.signForm(form_ppf);
 						
-			std::cout << std::endl << "Press Enter to try execute with undergraded Bureaucrat" << std::endl;
+			std::cout << std::endl << TEXT_BOLD
+				<< "Press Enter to try execute with undergraded Bureaucrat"
+				<< TEXT_NOFORMAT << std::endl;
 			input = "";
 			std::getline(std::cin, input);
 			FlopBureaucrat.executeForm(form_scf);
 			FlopBureaucrat.executeForm(form_rrf);
 			FlopBureaucrat.executeForm(form_ppf);
 			
-			std::cout << std::endl << "Press Enter to execute successfully" << std::endl;
+			std::cout << std::endl << TEXT_BOLD
+				<< "Press Enter to execute successfully"
+				<< TEXT_NOFORMAT << std::endl;
 			input = "";
 			std::getline(std::cin, input);
 			TopBureaucrat.executeForm(form_scf);

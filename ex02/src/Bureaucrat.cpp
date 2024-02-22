@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jschott <jschott@student.42berlin.de>      +#+  +:+       +#+        */
+/*   By: jschott <jschott@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 10:35:36 by jschott           #+#    #+#             */
-/*   Updated: 2024/02/21 19:29:46 by jschott          ###   ########.fr       */
+/*   Updated: 2024/02/22 10:15:06 by jschott          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ std::string Bureaucrat::getName() const{
 	return (this->_name);	
 }
 
-int			Bureaucrat::getGrade() const{
+int	Bureaucrat::getGrade() const{
 	return (this->_grade);
 }
 
@@ -86,10 +86,13 @@ std::ostream& operator <<(std::ostream& os, const Bureaucrat& bureaucrat){
 void Bureaucrat::signForm(Form & form){
 	try	{
 		form.beSigned(*this);
-		std::cout << *this << " signed:" << std::endl << form << std::endl;
+		std::cout << COLOR_SUCCESS << *this << " signed:" << std::endl 
+			<< COLOR_STANDARD << form << std::endl << std::endl;
 	}
 	catch(const std::exception& e){
-		std::cerr << e.what() << std::endl << *this << " cannot sign:" << std::endl << form << std::endl;
+		std::cerr << COLOR_ERROR << e.what() << std::endl
+				<< *this << " cannot sign:" << std::endl << COLOR_STANDARD 
+				<< form << std::endl;
 	}
 	
 }
@@ -97,10 +100,13 @@ void Bureaucrat::signForm(Form & form){
 void Bureaucrat::executeForm(Form const & form){
 	try	{
 		form.execute(*this);
-		std::cout << *this << " executed:" << std::endl << form << std::endl;
+		std::cout << COLOR_SUCCESS << *this << " executed:" << COLOR_STANDARD << std::endl
+				<< form << std::endl << std::endl;
 	}
 	catch(const std::exception& e){
-		std::cerr << e.what() << std::endl << *this << " cannot execute:" << std::endl << form << std::endl;
+		std::cerr << COLOR_ERROR << e.what() << std::endl
+				<< *this << " cannot execute:" << COLOR_STANDARD 
+				<< std::endl << form << std::endl;
 	}
 	
 }

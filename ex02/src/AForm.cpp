@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jschott <jschott@student.42berlin.de>      +#+  +:+       +#+        */
+/*   By: jschott <jschott@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 18:10:06 by jschott           #+#    #+#             */
-/*   Updated: 2024/02/21 19:29:22 by jschott          ###   ########.fr       */
+/*   Updated: 2024/02/22 10:01:04 by jschott          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,9 +70,9 @@ void Form::execute(Bureaucrat& bureaucrat) const{
 }
 
 std::ostream& operator <<(std::ostream& os, const Form& form){
-	os << "Form:\t\t" << form.getName() << std::endl
-		<< "Signed:\t\t" << std::boolalpha << form.getSigned() << std::endl
-		<< "Sign grade:\t" << form.getGrade2Sign() << std::endl
-		<< "Execute grade:\t" << form.getGrade2Exec() << std::endl;
+	os << "Form:\t\t" << TEXT_BOLD << form.getName() << TEXT_NOFORMAT << std::endl
+		<< "Signed:\t\t" << TEXT_BOLD << std::boolalpha << form.getSigned() << TEXT_NOFORMAT << std::endl
+		<< "Sign grade:\t" << TEXT_BOLD << form.getGrade2Sign() << TEXT_NOFORMAT << std::endl
+		<< "Execute grade:\t" << TEXT_BOLD << form.getGrade2Exec() << TEXT_NOFORMAT << std::endl;
 	return os;
 }

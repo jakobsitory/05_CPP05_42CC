@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jschott <jschott@student.42berlin.de>      +#+  +:+       +#+        */
+/*   By: jschott <jschott@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 17:58:33 by jschott           #+#    #+#             */
-/*   Updated: 2024/02/21 19:36:46 by jschott          ###   ########.fr       */
+/*   Updated: 2024/02/22 09:53:24 by jschott          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,16 @@
 # define FORM_HPP
 
 #include "Bureaucrat.hpp"
+
+#define TEXT_NOFORMAT	"\e[0m"
+#define TEXT_BOLD		"\e[1m"
+#define TEXT_UNDERLINE	"\e[4m"
+
+#define COLOR_STANDARD	"\033[0m"
+#define	COLOR_ERROR		"\033[31m"
+#define COLOR_WARNING	"\033[33m"
+#define COLOR_SUCCESS	"\033[92m"
+#define COLOR_FOCUS		"\e[35m"
 
 class Bureaucrat;
 

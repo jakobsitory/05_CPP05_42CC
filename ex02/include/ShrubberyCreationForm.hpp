@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jschott <jschott@student.42berlin.de>      +#+  +:+       +#+        */
+/*   By: jschott <jschott@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 13:33:41 by jschott           #+#    #+#             */
-/*   Updated: 2024/02/21 19:35:03 by jschott          ###   ########.fr       */
+/*   Updated: 2024/02/22 10:40:04 by jschott          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define SHRUBBERYCREATIONFORM_HPP
 
 #include <string>
+#include <fstream>
 #include "AForm.hpp"
 
 class ShrubberyCreationForm : public Form
@@ -30,6 +31,13 @@ class ShrubberyCreationForm : public Form
 
 		void execute(Bureaucrat& bureaucrat) const;
 		std::string getTarget() const;
+	
+	class OutFileException : public std::exception{
+		public:
+			virtual const char* what() const throw(){
+				return ("Form::OutFileException");
+			}
+	};
 };
 
 std::ostream& operator << (std::ostream& os, ShrubberyCreationForm const & form);

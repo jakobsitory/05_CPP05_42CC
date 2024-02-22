@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jschott <jschott@student.42berlin.de>      +#+  +:+       +#+        */
+/*   By: jschott <jschott@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 14:28:34 by jschott           #+#    #+#             */
-/*   Updated: 2024/02/21 19:34:49 by jschott          ###   ########.fr       */
+/*   Updated: 2024/02/22 10:11:21 by jschott          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,9 @@ RobotomyRequestForm::~RobotomyRequestForm(){
 
 void RobotomyRequestForm::execute(Bureaucrat& bureaucrat) const{
 	Form::execute(bureaucrat);
-	std::cout << ">Some Drilling Noises<" << std::endl 
-		<< this->_target << " has been robotomized sucessfully 50%% of the time." << std::endl;
+	std::cout << TEXT_BOLD << ">Some Drilling Noises<" << std::endl 
+		<< this->_target << " has been robotomized sucessfully 50%% of the time."
+		<< TEXT_NOFORMAT << std::endl << std::endl;
 }
 
 std::string RobotomyRequestForm::getTarget() const{
@@ -49,10 +50,10 @@ std::string RobotomyRequestForm::getTarget() const{
 }
 
 std::ostream& operator <<(std::ostream& os, const RobotomyRequestForm& form){
-	os << "Form:\t\t" << form.getName() << std::endl
-		<< "Signed:\t\t" << std::boolalpha << form.getSigned() << std::endl
-		<< "Sign grade:\t" << form.getGrade2Sign() << std::endl
-		<< "Execute grade:\t" << form.getGrade2Exec() << std::endl
-		<< "Target:\t\t" << form.getTarget() << std::endl;
+	os << "Form:\t\t" << TEXT_BOLD << form.getName() << std::endl << TEXT_NOFORMAT
+		<< "Signed:\t\t" << TEXT_BOLD << std::boolalpha << form.getSigned() << std::endl << TEXT_NOFORMAT
+		<< "Sign grade:\t" << TEXT_BOLD << form.getGrade2Sign() << std::endl << TEXT_NOFORMAT
+		<< "Execute grade:\t" << TEXT_BOLD << form.getGrade2Exec() << std::endl << TEXT_NOFORMAT
+		<< "Target:\t\t" << TEXT_BOLD << form.getTarget() << std::endl << TEXT_NOFORMAT;
 	return os;
 }
