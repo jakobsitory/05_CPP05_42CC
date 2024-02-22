@@ -1,0 +1,72 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jschott <jschott@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/20 10:22:09 by jschott           #+#    #+#             */
+/*   Updated: 2024/02/22 09:35:12 by jschott          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef BUREAUCRAT_HPP
+# define BUREAUCRAT_HPP
+
+#include <string>
+#include <iostream>
+#include "AForm.hpp"
+
+#define TEXT_NOFORMAT	"\e[0m"
+#define TEXT_BOLD		"\e[1m"
+#define TEXT_UNDERLINE	"\e[4m"
+
+#define COLOR_STANDARD	"\033[0m"
+#define	COLOR_ERROR		"\033[31m"
+#define COLOR_WARNING	"\033[33m"
+#define COLOR_SUCCESS	"\033[92m"
+#define COLOR_FOCUS		"\e[35m"
+
+class Form;
+
+class Bureaucrat
+{
+private:
+	const std::string	_name;
+	int					_grade;
+	
+public:
+	Bureaucrat();
+	Bureaucrat(std::string name, int grade);
+	Bureaucrat(const Bureaucrat& copy);
+	Bureaucrat& operator = (const Bureaucrat& copy);
+	~Bureaucrat();
+
+	Bureaucrat operator ++(int);
+	Bureaucrat& operator ++(void);
+	Bureaucrat operator --(int);
+	Bureaucrat& operator --(void);
+
+	std::string getName() const;
+	int			getGrade() const;
+
+	void		signForm(Form& form);
+	void		executeForm(Form const& form);
+
+	class GradeTooHighException : public std::exception{
+		public:
+			virtual const char* what() const throw(){
+				return ("Bureaucrat::GradeTooHighException");
+			}
+	};
+	class GradeTooLowException : public std::exception{
+		public:
+			virtual const char* what() const throw(){
+				return ("Bureaucrat::GradeTooLowException");
+			}
+	};
+};
+
+	std::ostream& operator <<(std::ostream& os, const Bureaucrat& bureaucrat);
+
+#endif
