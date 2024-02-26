@@ -6,7 +6,7 @@
 /*   By: jschott <jschott@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 13:33:41 by jschott           #+#    #+#             */
-/*   Updated: 2024/02/22 10:40:04 by jschott          ###   ########.fr       */
+/*   Updated: 2024/02/26 09:55:50 by jschott          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,7 @@ class ShrubberyCreationForm : public Form
 	
 	class OutFileException : public std::exception{
 		public:
-			virtual const char* what() const throw(){
-				return ("Form::OutFileException");
-			}
+			virtual const char* what() const throw();
 	};
 };
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jschott <jschott@student.42berlin.de>      +#+  +:+       +#+        */
+/*   By: jschott <jschott@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 18:10:06 by jschott           #+#    #+#             */
-/*   Updated: 2024/02/21 13:01:55 by jschott          ###   ########.fr       */
+/*   Updated: 2024/02/26 09:48:32 by jschott          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,10 @@ Form::Form(void)
 
 Form::Form(std::string name, bool is_signed, int grade2sign, int grade2exec)
 	: _name(name), _signed(is_signed), _grade2sign(grade2sign), _grade2exec(grade2exec) {
+		if (grade2exec < 1 || grade2sign < 1)
+			throw Form::GradeTooHighException();
+		else if (grade2exec > 150 || grade2sign > 150)
+			throw Form::GradeTooLowException();
 }
 
 Form::Form(Form& origin)
@@ -31,8 +35,6 @@ Form& Form::operator = (Form& origin){
 	if (this == &origin)
 		return *this;
 	this->_signed = origin.getSigned();
-	// this->_grade2sign = origin.getGrade2Sign();
-	// this->_grade2exec = origin.grade2exec();
 	return *this;
 }
 
@@ -64,6 +66,17 @@ void Form::beSigned(Bureaucrat& bureaucrat){
 		this->_signed = true;
 }
 
+const char* Form::GradeTooLowException::what() const throw(){
+				return ("Form::GradeTooLowException");
+}
+
+const char* Form::GradeTooHighException::what() const throw(){
+				return ("Form::GradeTooHighException");
+}
+
+const char* Form::AlreadySignedException::what() const throw(){
+				return ("Form::AlreadySignedException");
+}
 
 std::ostream& operator <<(std::ostream& os, const Form& form){
 	os << "Form:\t\t" << form.getName() << std::endl

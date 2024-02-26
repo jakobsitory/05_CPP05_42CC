@@ -6,7 +6,7 @@
 /*   By: jschott <jschott@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 17:50:17 by jschott           #+#    #+#             */
-/*   Updated: 2024/02/22 10:41:17 by jschott          ###   ########.fr       */
+/*   Updated: 2024/02/26 09:58:39 by jschott          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,10 @@ void ShrubberyCreationForm::execute(Bureaucrat& bureaucrat) const{
 std::string ShrubberyCreationForm::getTarget() const{
 	return this->_target;
 }
+
+const char* ShrubberyCreationForm::OutFileException::what() const throw(){
+				return ("ShrubberyCreationForm::OutFileException");
+			}
 
 std::ostream& operator <<(std::ostream& os, const ShrubberyCreationForm& form){
 	os << "Form:\t\t" << TEXT_BOLD << form.getName() << std::endl << TEXT_NOFORMAT

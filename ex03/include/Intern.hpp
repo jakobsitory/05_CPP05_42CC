@@ -6,7 +6,7 @@
 /*   By: jschott <jschott@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 10:43:55 by jschott           #+#    #+#             */
-/*   Updated: 2024/02/22 11:54:27 by jschott          ###   ########.fr       */
+/*   Updated: 2024/02/26 09:59:45 by jschott          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@ public:
 
 	class CannotCreateFormException : public std::exception{
 		public:
-			virtual const char* what() const throw(){
-				return ("Intern::CannotCreateFormException");
-			}
+			virtual const char* what() const throw();
 	};
 };

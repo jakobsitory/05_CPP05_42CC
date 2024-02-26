@@ -6,7 +6,7 @@
 /*   By: jschott <jschott@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 10:35:36 by jschott           #+#    #+#             */
-/*   Updated: 2024/02/20 18:21:22 by jschott          ###   ########.fr       */
+/*   Updated: 2024/02/26 09:19:26 by jschott          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,14 @@ std::string Bureaucrat::getName() const{
 
 int			Bureaucrat::getGrade() const{
 	return (this->_grade);
+}
+
+const char* Bureaucrat::GradeTooHighException::what() const throw(){
+				return ("Bureaucrat::GradeTooHighException");
+}
+
+const char* Bureaucrat::GradeTooLowException::what() const throw(){
+				return ("Bureaucrat::GradeTooLowException");
 }
 
 std::ostream& operator <<(std::ostream& os, const Bureaucrat& bureaucrat){

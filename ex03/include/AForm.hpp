@@ -6,7 +6,7 @@
 /*   By: jschott <jschott@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 17:58:33 by jschott           #+#    #+#             */
-/*   Updated: 2024/02/22 09:53:24 by jschott          ###   ########.fr       */
+/*   Updated: 2024/02/26 09:55:21 by jschott          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,27 +53,19 @@ public:
 
 	class GradeTooLowException : public std::exception{
 		public:
-			virtual const char* what() const throw(){
-				return ("Form::GradeTooLowException");
-			}
+			virtual const char* what() const throw();
 	};
 	class GradeTooHighException : public std::exception{
 		public:
-			virtual const char* what() const throw(){
-				return ("Form::GradeTooHighException");
-			}
+			virtual const char* what() const throw();
 	};
 	class NotSignedException : public std::exception{
 		public:
-			virtual const char* what() const throw(){
-				return ("Form::NotSignedException");
-			}
+			virtual const char* what() const throw();
 	};
 	class AlreadySignedException : public std::exception{
 		public:
-			virtual const char* what() const throw(){
-				return ("Form::AlreadySignedException");
-			}
+			virtual const char* what() const throw();
 	};
 };
 

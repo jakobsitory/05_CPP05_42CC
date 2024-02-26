@@ -6,7 +6,7 @@
 /*   By: jschott <jschott@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 13:42:48 by jschott           #+#    #+#             */
-/*   Updated: 2024/02/22 10:10:11 by jschott          ###   ########.fr       */
+/*   Updated: 2024/02/26 09:57:36 by jschott          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ PresidentialPardonForm& PresidentialPardonForm::operator = (PresidentialPardonFo
 }
 
 PresidentialPardonForm::~PresidentialPardonForm(){
-	
 }
 
 void PresidentialPardonForm::execute(Bureaucrat& bureaucrat) const{

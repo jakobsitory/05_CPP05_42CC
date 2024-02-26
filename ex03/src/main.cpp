@@ -6,7 +6,7 @@
 /*   By: jschott <jschott@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 11:56:23 by jschott           #+#    #+#             */
-/*   Updated: 2024/02/22 11:56:51 by jschott          ###   ########.fr       */
+/*   Updated: 2024/02/26 10:09:04 by jschott          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,9 @@ int	main(){
 	Bureaucrat	TopBureaucrat("TopBureaucrat", 1);
 	Bureaucrat	FlopBureaucrat("FlopBureaucrat", 150);
 	Intern		Jakob;
+	Form *form_scf;
+	Form *form_rrf;
+	Form *form_ppf;
 	
 	std::cout << "Welcome to the bureaucrat simulator!" << std::endl;
 	std::cout << "To exit enter " << TEXT_BOLD << "EXIT" << TEXT_NOFORMAT << std::endl;
@@ -57,9 +60,9 @@ int	main(){
 		std::cout << std::endl << "Telling intern to create Forms" << std::endl;
 
 		try{
-			Form *form_scf = Jakob.makeForm("ShrubberyCreationForm", target_scf);
-			Form *form_rrf  = Jakob.makeForm("RobotomyRequestForm", target_rrf);
-			Form *form_ppf = Jakob.makeForm("PresidentialPardonForm", target_ppf);
+			form_scf = Jakob.makeForm("ShrubberyCreationForm", target_scf);
+			form_rrf  = Jakob.makeForm("RobotomyRequestForm", target_rrf);
+			form_ppf = Jakob.makeForm("PresidentialPardonForm", target_ppf);
 			
 			std::cout << std::endl << COLOR_SUCCESS << "SUCCESS!" << COLOR_STANDARD << std::endl
 			<< *form_scf << std::endl << *form_rrf << std::endl << *form_ppf << std::endl;
@@ -111,12 +114,18 @@ int	main(){
 			std::cerr << e.what() << std::endl;
 		}
 		
+
 		std::cout << std::endl << "Simulation done" << std::endl;
 		std::cout << "To exit enter EXIT" << std::endl;
 		std::cout << "To restart enter RESTART" << std::endl;
 		std::cin >> input;
 		while (input != "RESTART" && input != "EXIT")
 			std::cin >> input;
+	
+		
 	}
+	delete (form_scf);
+	delete (form_rrf);
+	delete (form_ppf); 
 	return (0);
 }

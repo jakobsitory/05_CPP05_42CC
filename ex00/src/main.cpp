@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jschott <jschott@student.42berlin.de>      +#+  +:+       +#+        */
+/*   By: jschott <jschott@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 11:56:23 by jschott           #+#    #+#             */
-/*   Updated: 2024/02/21 13:27:08 by jschott          ###   ########.fr       */
+/*   Updated: 2024/02/26 09:25:24 by jschott          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	main(){
 			return (0);
 		
 		std::cout << "Grade (1-150) OR" << std::endl << "R for random value:\t";
-		while (!std::atoi(input.c_str())){
+		while (!std::atoi(input.c_str()) && input != "0"){
 			std::getline(std::cin, input);
 			if (input == "EXIT")
 				return (0);	
@@ -87,7 +87,7 @@ int	main(){
 			try {
 				while (true){
 					++bureau;
-					std::cout << "PROMITED: " << bureau << std::endl;
+					std::cout << "PROMOTED: " << bureau << std::endl;
 				}
 			}
 			catch(const std::exception& e){

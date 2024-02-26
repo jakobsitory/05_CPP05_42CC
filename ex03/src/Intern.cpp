@@ -6,7 +6,7 @@
 /*   By: jschott <jschott@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 10:52:08 by jschott           #+#    #+#             */
-/*   Updated: 2024/02/22 11:55:41 by jschott          ###   ########.fr       */
+/*   Updated: 2024/02/26 10:04:10 by jschott          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,6 @@ Form* Intern::makeForm(std::string name, std::string target){
 	std::string form_names[] = {"ShrubberyCreationForm", 
 								"RobotomyRequestForm", 
 								"PresidentialPardonForm"};
-	
-	
 
 	int i =0;
 	while (i < 4 && form_names[i] != name)
@@ -48,15 +46,17 @@ Form* Intern::makeForm(std::string name, std::string target){
 				return new RobotomyRequestForm(target);
 			case 2:
 				return new PresidentialPardonForm(target);
-			default: {
-				std::cerr << COLOR_ERROR << "intern cannot create form: " << name << std::endl << COLOR_STANDARD;
-				return NULL;
-				}
+			default:
+				throw Intern::CannotCreateFormException();
 		}
 	}
 	catch(const std::exception& e){
 		std::cerr << COLOR_ERROR << e.what() << std::endl
-				<< "Error while creating form " << name << std::endl << COLOR_STANDARD;
+				<< "Intern cannot create form: " << name << std::endl << COLOR_STANDARD;
 	}
 	return NULL;
+}
+
+const char* Intern::CannotCreateFormException::what() const throw(){
+				return ("Intern::CannotCreateFormException");
 }

@@ -6,7 +6,7 @@
 /*   By: jschott <jschott@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 10:22:09 by jschott           #+#    #+#             */
-/*   Updated: 2024/02/20 19:19:30 by jschott          ###   ########.fr       */
+/*   Updated: 2024/02/26 09:27:27 by jschott          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,15 +44,11 @@ public:
 
 	class GradeTooHighException : public std::exception{
 		public:
-			virtual const char* what() const throw(){
-				return ("Bureaucrat::GradeTooHighException");
-			}
+			virtual const char* what() const throw();
 	};
 	class GradeTooLowException : public std::exception{
 		public:
-			virtual const char* what() const throw(){
-				return ("Bureaucrat::GradeTooLowException");
-			}
+			virtual const char* what() const throw();
 	};
 };
 
