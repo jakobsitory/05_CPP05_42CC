@@ -6,7 +6,7 @@
 /*   By: jschott <jschott@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 11:56:23 by jschott           #+#    #+#             */
-/*   Updated: 2024/02/26 09:54:50 by jschott          ###   ########.fr       */
+/*   Updated: 2024/08/08 13:05:45 by jschott          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,22 @@
 #include <string>
 #include <iostream>
 
+/**
+ * The main function for a bureaucrat simulator. This program simulates a bureaucratic system where bureaucrats are tasked with handling
+ * various forms. It demonstrates the creation, assignment, and processing of different types of forms (ShrubberyCreationForm,
+ * RobotomyRequestForm, and PresidentialPardonForm) by bureaucrats and an intern named Jakob.
+ *
+ * The simulation includes:
+ * - Creating bureaucrats with different ranks.
+ * - An intern attempting to create forms, including an invalid form to demonstrate error handling.
+ * - Input from the user to assign targets for each form type.
+ * - The intern creating valid forms based on user input.
+ * - Demonstrating the dynamic creation of forms through the Intern's makeForm method, showcasing polymorphism and exception handling.
+ *
+ * The purpose of this program is to illustrate the use of object-oriented programming principles such as inheritance, polymorphism,
+ * encapsulation, and exception handling in a simulated bureaucratic system. It also demonstrates the use of the Factory pattern
+ * through the Intern's ability to create forms dynamically.
+ */
 int	main(){
 	
 	Bureaucrat TopBureaucrat("TopBureaucrat", 1);

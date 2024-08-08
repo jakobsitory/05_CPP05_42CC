@@ -6,7 +6,7 @@
 /*   By: jschott <jschott@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 11:56:23 by jschott           #+#    #+#             */
-/*   Updated: 2024/02/26 09:46:29 by jschott          ###   ########.fr       */
+/*   Updated: 2024/08/08 13:06:17 by jschott          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,15 @@
 #define RED		"\033[1;31m"
 #define BOLD	"\033[1m"
 
+/**
+ * Checks if the given string represents a numeric value.
+ * 
+ * This function iterates over each character in the string to check if it is a digit. The function returns true if all characters
+ * are digits, indicating the string represents a numeric value. If any character is not a digit, the function returns false.
+ * 
+ * @param str The string to be checked.
+ * @return True if the string represents a numeric value, false otherwise.
+ */
 bool num_str(const char* str){
 	
 	while (str && *str){
@@ -35,6 +44,16 @@ bool num_str(const char* str){
 	return false;
 }
 
+/**
+ * The main entry point of the bureaucrat simulator program.
+ * 
+ * This function initializes the simulation, welcoming the user and providing instructions on how to proceed. It enters a loop
+ * where it prompts the user to enter data for creating a Form, including the name of the form and the grades required to sign
+ * and execute it. The loop continues until the user decides to exit the simulation by entering "EXIT".
+ * 
+ * The simulation demonstrates basic input/output operations, dynamic memory management, and basic input validation for numeric
+ * strings. It also showcases the use of ANSI escape codes for colored output in the terminal.
+ */
 int	main(){
 	
 	std::string input;
