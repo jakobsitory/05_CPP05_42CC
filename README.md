@@ -5,7 +5,7 @@ This repository contains solutions to various C++ programming challenges from th
 ## **Modules**
 
 ### **ex00 - Mommy, when I grow up, I want to be a bureaucrat!**
-The Mommy, when I grow up, I want to be a bureaucrat! project involves creating a class that simulates a bureaucrat with specific attributes and behaviors.
+A class that simulates a bureaucrat with specific attributes and behaviors.
 
 **Key objectives included:**
 
@@ -14,7 +14,7 @@ The Mommy, when I grow up, I want to be a bureaucrat! project involves creating 
 - Managing exceptions for invalid grades.
 
 ### **ex01 - Form up, maggots!**
-The Form up, maggots! project involves creating a form class that can be signed by bureaucrats.
+A form class that can be signed by bureaucrats.
 
 **Key objectives included:**
 
@@ -23,7 +23,7 @@ The Form up, maggots! project involves creating a form class that can be signed 
 - Demonstrating the interaction between the `Bureaucrat` and `Form` classes.
 
 ### **ex02 - No, you need form 28B, not 28C...**
-The No, you need form 28B, not 28C... project involves creating specific types of forms and handling their execution.
+Specific types of forms and handling their execution.
 
 **Key objectives included:**
 
@@ -32,7 +32,7 @@ The No, you need form 28B, not 28C... project involves creating specific types o
 - Demonstrating polymorphism and the use of derived classes.
 
 ### **ex03 - At least this beats coffee-making**
-The At least this beats coffee-making project involves creating a central office that manages multiple forms and bureaucrats.
+A central office that manages multiple forms and bureaucrats.
 
 **Key objectives included:**
 
@@ -46,7 +46,8 @@ To install the project, follow these steps:
 
 1. Clone the repository: **`git clone git@github.com:jakobsitory/05_CPP05_42CC.git`**
 2. Navigate to the project directory: **`cd 05_CPP05_42CC`**
-3. Build the project: **`make`**
+3. Navigate to the excercise directory : **`cd ex00`**,  **`cd ex01`** ...
+4. Build the project: **`make`**
 
 ## **Usage**
 _Follow the on-screen instructions to test the programs._
